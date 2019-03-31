@@ -5,17 +5,18 @@ import React from 'react';
 export default class TextAnime extends React.PureComponent {
   constructor(props) {
     super(props);
-    const { texts } = this.props;
+    const { texts, base } = this.props;
     this.texts = texts;
     this.state = {
       show: true,
-      text: '',
+      text: base,
     };
-    this.id = 0;
+    this.id = -1;
+    this.interval = 50;
   }
 
   componentDidMount() {
-    setTimeout(() => { this.switchtext(); }, 1500);
+    setTimeout(() => { this.switchtext(); }, 5000);
   }
 
   switchtext = () => {
@@ -23,14 +24,15 @@ export default class TextAnime extends React.PureComponent {
 
     if (show) {
       this.setState({ show: false, text: '' });
-      setTimeout(() => { this.switchtext(); }, 1200);
+      setTimeout(() => { this.switchtext(); }, 100);
     } else {
       this.id = (this.id + 1) % this.texts.length;
       this.setState({
-        text: this.texts[this.id],
+        text: this.texts[this.id][0],
         show: true,
       });
-      setTimeout(() => { this.switchtext(); }, 10000);
+      const showTime = (typeof this.texts[this.id][1] !== 'undefined' && this.texts[this.id][1] !== 0) ? this.texts[this.id][1] * 1000 : 10000 - this.interval * this.texts[this.id][0].length;
+      setTimeout(() => { this.switchtext(); }, showTime);
     }
   }
 
@@ -40,6 +42,7 @@ export default class TextAnime extends React.PureComponent {
       <TextyAnim
         type="mask-top"
         mode="smooth"
+        interval={this.interval}
       >
         { text }
       </TextyAnim>
@@ -48,5 +51,6 @@ export default class TextAnime extends React.PureComponent {
 }
 
 TextAnime.propTypes = {
-  texts: PropTypes.arrayOf(PropTypes.string).isRequired,
+  texts: PropTypes.arrayOf(PropTypes.array).isRequired,
+  base: PropTypes.string.isRequired,
 };

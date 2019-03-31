@@ -1,11 +1,13 @@
 import React from 'react';
-import './App.css';
+import { Router, Route } from 'react-router';
 import Landing from './containers/Landing/Landing';
+import history from './utils/history';
+import './App.css';
 
 const App = () => (
-  <div className="App">
-    <Landing />
-  </div>
+  <Router history={history}>
+    <Route path="/" component={Landing} />
+  </Router>
 );
 
 export default App;
