@@ -1,0 +1,21 @@
+
+.landing {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.center {
+    width: 50%;
+}
+
+.landing div {
+    margin-bottom: 2%;
+}
+
+.landing .title {
+    font-size: 6em;
+    color: white;
+}
