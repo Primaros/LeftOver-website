@@ -11,12 +11,27 @@
   justify-content: center;
 }
 
+.background-navbar-image {
+  background-image: url("./assets/interface/backgroundNavbar.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: row;
+}
+
+.page {
+  height: 100vh;
+}
+
 .page-shadow {
   background-color: rgba(0,0,0,0.7);
-  height: 100vh;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.white {
+  color: white;
 }
 
 .nav {
