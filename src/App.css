@@ -30,6 +30,13 @@
   justify-content: center;
 }
 
+.searchBar-ingredients {
+  background-color: #212F3D;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-bottom: 1%;
+}
+
 .white {
   color: white;
 }
@@ -46,6 +53,26 @@ nav .title {
 .subTitle {
   font-size: 2em;
   color: gainsboro;
+}
+
+.row {
+  display: flex;
+  flex-direction: 'row';
+  align-self: stretch;
+}
+
+.flex-1 {
+  align-self: stretch;
+  flex: 1;
+}
+
+.list-2col {
+  display: flex;
+  flex-flow: wrap;
+}
+
+.elem-2col {
+  flex: 0 0 33%;
 }
 
 @keyframes App-logo-spin {

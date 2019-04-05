@@ -22,12 +22,9 @@ const Landing = () => (
       </Navbar.Item>
     </Navbar.Brand>
     <Navbar.Menu>
-      <Navbar.Container>
-        <Navbar.Item href="#">Second</Navbar.Item>
-      </Navbar.Container>
-      <Navbar.Container position="end">
-        <Navbar.Item href="#">At the end</Navbar.Item>
-      </Navbar.Container>
+      <Navbar.Item href="#">
+        <p className="title">LeftOver</p>
+      </Navbar.Item>
     </Navbar.Menu>
   </Navbar>
 );

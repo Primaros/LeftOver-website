@@ -1,0 +1,8 @@
+
+.ingredientsCollector {
+    border: 1px white solid;
+    border-radius: 10px;
+    background-color: rgba(52, 73, 94, 0.5);
+    height: 100%;
+    width: 100%;
+}

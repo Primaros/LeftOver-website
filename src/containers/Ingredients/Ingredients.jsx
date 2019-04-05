@@ -1,23 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Container } from 'react-bulma-components/full';
 import IngredientNavbar from '../../components/Navbar/IngredientNavbar';
-import SearchBar from '../../components/SearchBar';
-
-const IngredientItem = ({ item: { name, pic }, index }) => (
-  <div key={index}>
-    <p>
-      Name:
-      <span>{ name }</span>
-      Pic:
-      <span>{ pic }</span>
-    </p>
-  </div>
-);
+import Ingredient from '../../components/Ingredient';
 
 const IngerdientList = ({ list }) => (
-  <div>
-    {list.map((item, index) => (
-      <IngredientItem key={index.toString()} item={item} index={index} />
+  <div className="list-2col">
+    {list.map(item => (
+      <div className="elem-2col">
+        <Ingredient key={item.name} name={item.name} pic={item.pic} />
+      </div>
     ))}
   </div>
 );
@@ -25,7 +17,8 @@ const IngerdientList = ({ list }) => (
 class IngredientsPage extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.dbIngredients = [{ name: 'Tomate', pic: 'Tomate' }];
+    this.dbIngredients = [{ name: 'Tomate', pic: 'Tomate' }, { name: 'Tomate', pic: 'Tomate' },
+      { name: 'Tomate', pic: 'Tomate' }, { name: 'Tomate', pic: 'Tomate' }, { name: 'Tomate', pic: 'Tomate' }];
     this.state = {
       list: this.dbIngredients,
     };
@@ -38,6 +31,8 @@ class IngredientsPage extends React.PureComponent {
         item.name.toLowerCase().includes(lowerText)
       ));
       this.setState({ list });
+    } else {
+      this.setState({ list: this.dbIngredients });
     }
   };
 
@@ -45,18 +40,14 @@ class IngredientsPage extends React.PureComponent {
     const { list } = this.state;
     return (
       <div className="page">
-        <IngredientNavbar />
-        <SearchBar holder="Search ingredient..." changeHandler={this.filter} />
-        <IngerdientList list={list} />
+        <IngredientNavbar chHandle={this.filter} />
+        <Container>
+          <IngerdientList list={list} />
+        </Container>
       </div>
     );
   }
 }
-
-IngredientItem.propTypes = {
-  item: PropTypes.objectOf(PropTypes.string, PropTypes.string).isRequired,
-  index: PropTypes.number.isRequired,
-};
 
 IngerdientList.propTypes = {
   list: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string, PropTypes.string)).isRequired,
