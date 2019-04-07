@@ -18,8 +18,27 @@
   flex-direction: row;
 }
 
-.page {
+.screen {
   height: 100vh;
+  background-color: #154360;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #212F3D;
+}
+
+.page-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  border-radius: 10px;
+  margin-left: 15%;
+  margin-right: 15%;
+  background-color: white;
+  box-shadow: 3px 3px 20px #48C9B0;
 }
 
 .page-shadow {
@@ -61,25 +80,41 @@ nav .title {
   align-self: stretch;
 }
 
+.row-space {
+  display: flex;
+  flex-direction: 'row';
+  align-self: stretch;
+  justify-content: space-between;
+}
+
 .flex-1 {
   align-self: stretch;
   flex: 1;
 }
 
-.list-2col {
-  display: flex;
-  flex-flow: wrap;
+h1 {
+  font-size: 3em;
 }
 
-.elem-2col {
-  flex: 0 0 33%;
+.list {
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.center {
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.elem-3col {
+  margin-left: 2%;
+  margin-right: 1%;
+  display: inline-block;
+  width: 30%;
+}
+
+html, 
+body,
+#root,
+.page {
+    height: 100%;
 }

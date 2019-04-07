@@ -5,4 +5,29 @@
     background-color: rgba(52, 73, 94, 0.5);
     height: 100%;
     width: 100%;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.ingredient {
+    margin: 1%;
+    margin-right: 0;
+    background-color: white;
+    border-radius: 10px;
+    flex-direction: row;
+    display: flex;
+}
+
+.ingredient-image {
+    margin: 3px;
+    border-radius: 10px;
+    width: 64px;
+    height: 60px;
+}
+
+.ingredient-remove {
+    margin: 4px;
+    margin-left: -20px;
 }

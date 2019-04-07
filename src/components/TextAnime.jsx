@@ -16,7 +16,14 @@ export default class TextAnime extends React.PureComponent {
   }
 
   componentDidMount() {
-    setTimeout(() => { this.switchtext(); }, 5000);
+    this.timerHandle = setTimeout(() => { this.switchtext(); }, 5000);
+  }
+
+  componentWillUnmount = () => {
+    if (this.timerHandle) {
+      clearTimeout(this.timerHandle);
+      this.timerHandle = 0;
+    }
   }
 
   switchtext = () => {
@@ -24,7 +31,7 @@ export default class TextAnime extends React.PureComponent {
 
     if (show) {
       this.setState({ show: false, text: '' });
-      setTimeout(() => { this.switchtext(); }, 100);
+      this.timerHandle = setTimeout(() => { this.switchtext(); }, 100);
     } else {
       this.id = (this.id + 1) % this.texts.length;
       this.setState({
@@ -32,7 +39,7 @@ export default class TextAnime extends React.PureComponent {
         show: true,
       });
       const showTime = (typeof this.texts[this.id][1] !== 'undefined' && this.texts[this.id][1] !== 0) ? this.texts[this.id][1] * 1000 : 10000 - this.interval * this.texts[this.id][0].length;
-      setTimeout(() => { this.switchtext(); }, showTime);
+      this.timerHandle = setTimeout(() => { this.switchtext(); }, showTime);
     }
   }
 

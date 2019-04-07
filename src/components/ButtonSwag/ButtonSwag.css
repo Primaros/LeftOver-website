@@ -1,0 +1,42 @@
+
+.btn-hover {
+  font-size: 16px;
+  height: 40px;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+  padding: 10px;
+  border-radius: 50px;
+  transition: all .4s ease-in-out;
+  margin: auto;
+}
+  
+.btn-hover.disabled {
+  background-image: linear-gradient(to right, #ABB2B9, #808B96, #D5D8DC, #566573);
+  box-shadow: 0 4px 15px 0 #ABB2B9;
+  cursor: default;
+}
+  
+.btn-hover.disabled:hover {
+  background-position: 0;
+  transition: none;
+  cursor: default;
+}
+  
+.btn-hover:hover {
+  background-position: 100% 0;
+  transition: all .4s ease-in-out;
+}
+  
+.btn-hover:focus {
+  outline: none;
+}
+  
+.btn-hover.color-blue {
+  background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+  box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+}

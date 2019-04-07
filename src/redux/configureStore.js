@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from 'redux';
-// import parametres from './reducers/paramReducer';
+import ingredients from './reducers/ingredientsReducer';
 
 const reducerList = combineReducers({
-  // parametres,
+  ingredients,
 });
 
 export default createStore(reducerList);
