@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "eslint": "^5.16.0",
     "history": "^4.9.0",
     "prop-types": "^15.7.2",
     "rc-texty": "^0.2.0",
