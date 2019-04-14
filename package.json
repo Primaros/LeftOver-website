@@ -13,19 +13,21 @@
   },
   "description": "Website to find dish from leftover",
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "eslint": "^5.12.0",
+    "eslint-plugin-import": "^2.17.1",
     "history": "^4.9.0",
     "prop-types": "^15.7.2",
     "rc-texty": "^0.2.0",
     "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.8",
     "react-bulma-components": "^2.3.0",
     "react-dom": "^16.8.6",
     "react-icons": "^3.5.0",
     "react-redux": "^7.0.1",
     "react-router-dom": "^5.0.0",
     "react-scripts": "2.1.8",
-    "redux": "^4.0.1",
-    "eslint": "^5.12.0",
-    "eslint-plugin-import": "^2.17.1"
+    "redux": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

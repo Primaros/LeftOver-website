@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonSwag from '../../components/ButtonSwag/ButtonSwag';
 import { ReactComponent as MilkSvg } from '../../components/Milk.svg';
-import './CodeError.css';
+import './ConnectionError.css';
 
 const CodeError = ({ history }) => (
   <div className="screen-size page center">

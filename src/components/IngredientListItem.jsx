@@ -9,11 +9,11 @@ import {
 import { addIngredients } from '../redux/actions/ingredientsActions';
 
 const IngredientListItem = ({ item }) => {
-  const { name, pic } = item;
+  const { name, picture } = item;
   return (
     <Media style={{ margin: '2%', backgroundColor: 'white' }}>
       <Media.Item renderAs="figure" position="left">
-        <Image size={64} alt="64x64" src={pic} />
+        <Image size={64} alt="64x64" src={picture} />
       </Media.Item>
       <Media.Item>
         <Content>
@@ -30,7 +30,10 @@ const IngredientListItem = ({ item }) => {
 };
 
 IngredientListItem.propTypes = {
-  item: PropTypes.objectOf(PropTypes.string.isRequired, PropTypes.string.isRequired).isRequired,
+  item: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default IngredientListItem;

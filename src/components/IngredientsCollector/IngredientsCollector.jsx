@@ -5,9 +5,9 @@ import { Tag } from 'react-bulma-components/full';
 import './IngredientsCollector.css';
 import { removeIngredients } from '../../redux/actions/ingredientsActions';
 
-const Ingredient = ({ name, pic, index }) => (
+const Ingredient = ({ name, picture, index }) => (
   <div className="ingredient">
-    <img className="ingredient-image rounded" size={64} alt={name} src={pic} />
+    <img className="ingredient-image rounded" size={64} alt={name} src={picture} />
     <div className="ingredient-remove">
       <Tag rounded remove color="danger" onClick={() => { removeIngredients(index); }} />
     </div>
@@ -16,7 +16,7 @@ const Ingredient = ({ name, pic, index }) => (
 
 Ingredient.propTypes = {
   name: PropTypes.string.isRequired,
-  pic: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
 };
 
@@ -32,8 +32,10 @@ const IngredientsCollector = ({ ingredients }) => (
 );
 
 IngredientsCollector.propTypes = {
-  ingredients: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.string.isRequired,
-    PropTypes.string.isRequired).isRequired).isRequired,
+  ingredients: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    pisture: PropTypes.string.isRequired,
+  }).isRequired).isRequired,
 };
 
 const mapStateToProps = state => ({ ingredients: state.ingredients.list });

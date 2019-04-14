@@ -6,7 +6,7 @@ import IngredientsCollector from '../components/IngredientsCollector/Ingredients
 import IngredientsPage from './Ingredients/IngredientsPage';
 import ReceipsPage from './Receips/ReceipsPage';
 import DishPage from './Dish/DishPage';
-import CodeError from './errors/CodeError';
+import ConnectionError from './errors/ConnectionError';
 
 const renderRedirect = () => (
   <Redirect to="/pagenotfound" />
@@ -17,12 +17,12 @@ const MainPage = () => (
     <IngredientNavbar />
     <div className="row" style={{ height: '100%' }}>
       <IngredientsCollector />
-      <div className="page-content" style={{ flex: 4 }}>
+      <div className="page-content">
         <Switch>
           <Route path="/leftover/ingredients" component={IngredientsPage} />
           <Route path="/leftover/receips" component={ReceipsPage} />
           <Route path="/leftover/dish/:name" component={DishPage} />
-          <Route path="/coderror" component={CodeError} />
+          <Route path="/coderror" component={ConnectionError} />
           <Route component={renderRedirect} />
         </Switch>
       </div>
