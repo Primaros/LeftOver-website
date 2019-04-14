@@ -93,7 +93,6 @@ nav .title {
 }
 
 .flex-1 {
-  align-self: stretch;
   flex: 1;
 }
 

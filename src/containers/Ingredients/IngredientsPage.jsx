@@ -59,6 +59,9 @@ class IngredientsPage extends React.PureComponent {
   }
 
   getPage = (ingredients, list, page) => {
+    if (!list) {
+      return [];
+    }
     let subList = list.slice(0).splice(page * this.nbIngredientPage, this.nbIngredientPage * 2);
     subList = subList.filter((item) => {
       for (let i = 0; i < ingredients.length; i += 1) {
@@ -73,7 +76,7 @@ class IngredientsPage extends React.PureComponent {
   }
 
   onPageChange = (page) => {
-    this.setState({ page: page });
+    this.setState({ page });
   }
 
   filter = (text) => {
@@ -106,7 +109,7 @@ class IngredientsPage extends React.PureComponent {
             : <ButtonSwag text="Check the recipes !" style={{ marginRight: '3%' }} onClick={() => history.push('receips')} disabled /> }
         </div>
         <IngerdientList list={this.getPage(ingredients, list, page)} />
-        <div style={{ margin: 10 }}>
+        <div style={{ marginBottom: 15, marginLeft: 30 }}>
           <MyPagination
             nbPage={list.length / this.nbIngredientPage}
             currentPage={page + 1}
