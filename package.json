@@ -2,6 +2,16 @@
   "name": "leftover",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://leftover-website.herokuapp.com/",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/Primaros/LeftOver-website"
+  },
+  "bugs": {
+    "url" : "https://github.com/Primaros/LeftOver-website/issues",
+    "email" : "anthony.kam@epitech.eu"
+  },
+  "description": "Website to find dish from leftover",
   "dependencies": {
     "history": "^4.9.0",
     "prop-types": "^15.7.2",
