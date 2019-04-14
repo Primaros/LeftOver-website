@@ -13,6 +13,7 @@
     flex: 1;
     justify-content: center;
     align-items: center;
+    padding-bottom: 10%;
 }
 
 .landing .center {
@@ -27,6 +28,7 @@
 }
 
 .landing .title {
-    font-size: 6em;
+    font-size: 7em;
     color: white;
+    font-family: "Indie Flower", sans-serif;
 }
