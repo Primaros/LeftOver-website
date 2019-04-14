@@ -1,48 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import IngredientNavbar from '../../components/Navbar/IngredientNavbar';
 import ReceipListItem from '../../components/ReceipListItem';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import ButtonSwag from '../../components/ButtonSwag/ButtonSwag';
 import { getBDDPlats } from '../../APIManager';
 
-const ReceipsList = ({ list }) => (
-  <div className="list">
-    {list.map(item => (
-      <div key={item.name}>
-        <ReceipListItem key={item.name} item={item} />
-      </div>
-    ))}
-  </div>
-);
-
-ReceipsList.propTypes = {
-  list: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      pic: PropTypes.string.isRequired,
-      ingredients: PropTypes.arrayOf(
-        PropTypes.shape({
-          name: PropTypes.string.isRequired,
-          pic: PropTypes.string.isRequired,
-        }),
-      ),
-      steps: PropTypes.arrayOf(PropTypes.string.isRequired),
-      time: PropTypes.string.isRequired,
-    }).isRequired,
-  ).isRequired,
-};
-
 class ReceipsPage extends React.PureComponent {
   static propTypes = {
     ingredients: PropTypes.arrayOf(
-      PropTypes.objectOf(PropTypes.string, PropTypes.string),
+      PropTypes.objectOf(PropTypes.string.isRequired, PropTypes.string.isRequired),
     ).isRequired,
     history: PropTypes.shape({
-      length: PropTypes.number,
-      search: PropTypes.string,
-      hash: PropTypes.string,
+      length: PropTypes.number.isRequired,
+      push: PropTypes.func.isRequired,
     }).isRequired,
   }
 
@@ -75,6 +46,21 @@ class ReceipsPage extends React.PureComponent {
       });
   }
 
+  getReceipsList = list => (
+    <div className="list">
+      {list.map(item => (
+        <div key={item.name}>
+          <ReceipListItem key={item.name} item={item} handler={this.onPlatClick} />
+        </div>
+      ))}
+    </div>
+  )
+
+  onPlatClick = (name) => {
+    const { history } = this.props;
+    history.push(`dish/${name}`);
+  }
+
   filter = (text) => {
     if (text) {
       const lowerText = text.toLowerCase();
@@ -91,19 +77,16 @@ class ReceipsPage extends React.PureComponent {
     const { list, error } = this.state;
     const { history } = this.props;
     return (
-      <div className="page">
-        <div className="page-content">
-          <IngredientNavbar />
-          <div className="row center">
-            <h1>Choose a receip</h1>
-          </div>
-          <div className="row" style={{ marginBottom: 20 }}>
-            <ButtonSwag text="Back to ingredients" style={{ marginLeft: '3%' }} onClick={() => history.push('ingredients')} />
-            <SearchBar holder="Search receip..." changeHandler={this.filter} />
-          </div>
-          { error ? <p>{error}</p>
-            : <ReceipsList list={list} /> }
+      <div>
+        <div className="row center">
+          <h2>Choose a receip</h2>
         </div>
+        <div className="row" style={{ marginBottom: 20 }}>
+          <ButtonSwag text="Back to ingredients" style={{ marginLeft: '3%' }} onClick={() => history.push('ingredients')} />
+          <SearchBar holder="Search receip..." changeHandler={this.filter} />
+        </div>
+        { error ? <p>{error}</p>
+          : this.getReceipsList(list) }
       </div>
     );
   }

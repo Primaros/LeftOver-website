@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FaSearch from 'react-icons/lib/fa/search';
-import FaClose from 'react-icons/lib/fa/close';
+import { MdClose, MdSearch } from 'react-icons/md';
 import './SearchBar.css';
 
 export default class SearchBar extends React.PureComponent {
@@ -35,8 +34,8 @@ export default class SearchBar extends React.PureComponent {
         <input placeholder={holder} className="searchBar-input" type="text" value={text} ref={this.textInput} onChange={event => (this.onTextChange(event.target.value))} />
         <button className="searchBar-button" type="button" onClick={this.buttonPress} style={{ backgroundColor: '#2C3E50' }}>
           {
-            text ? <FaClose size={20} style={{ color: '#5D6D7E' }} />
-              : <FaSearch style={{ color: '#5D6D7E' }} />
+            text ? <MdClose size={20} style={{ color: '#5D6D7E' }} />
+              : <MdSearch size={20} style={{ color: '#5D6D7E' }} />
           }
         </button>
       </div>

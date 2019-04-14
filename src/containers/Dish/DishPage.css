@@ -1,0 +1,108 @@
+
+.dish {
+    display: flex;
+    float: 1;
+    flex-direction: column;
+}
+
+.dish-top {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+}
+
+.dish-top h1 {
+    margin-left: 18%;
+}
+
+.dish-top button {
+    margin-right: 0;
+}
+
+.dish-middle {
+    display: flex;
+    flex: 2;
+    flex-direction: column;
+    align-items: center;
+    max-height: 400px;
+}
+
+.sub-middle {
+    display: flex;
+    flex-direction: row;
+    align-self: stretch;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.sub-middle p {
+    font-size: 1.2em;
+    margin-left: 3%;
+    margin-right: 3%;
+}
+
+.dish-bottom {
+    display: flex;
+    flex: 2;
+    flex-direction: row;
+    padding-top: 5px;
+}
+
+.dish .image {
+    align-items: center;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    box-shadow: 1px 1px 15px grey;
+}
+
+.dish-ingredientsList,
+.dish-steps {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-self: auto;
+    justify-content: flex-start;
+    margin-left: 10%;
+    margin-right: 10%;
+    box-shadow: 0 8px 6px -6px grey;
+}
+
+.dish-ingredientsList li,
+.dish-steps li {
+    display: flex;
+    flex-direction: row;
+    min-height: 50px;
+}
+
+.dish-ingredientsList li .text,
+.dish-steps li .text {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    align-content: center;
+    margin-left: 2%;
+}
+
+.dish-ingredientsList li img {
+    width: 50px;
+    height: 50px;
+    margin: 1px;
+}
+
+.text-title {
+    font-size: 2em;
+    text-align: center;
+}
+
+ul {
+    flex: 1;
+}
+
+.li-0 {
+    background-color: aquamarine;
+}
+
+.li-1 {
+    background-color: white;
+}

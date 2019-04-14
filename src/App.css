@@ -3,31 +3,31 @@
   align-self: stretch;
 }
 
-.background-image {
-  background-image: url("./assets/interface/background.jpg");
-  background-size: cover;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .background-navbar-image {
   background-image: url("./assets/interface/backgroundNavbar.jpg");
   background-size: cover;
   display: flex;
   flex-direction: row;
+  border-radius: 10px;
 }
 
-.screen {
+.screen-size {
   height: 100vh;
-  background-color: #154360;
+  background-color: #008080;
+  overflow: hidden;
 }
 
 .page {
   display: flex;
   flex-direction: column;
   flex: 1;
-  background-color: #212F3D;
+  background-color: #191970	;
+}
+
+.page-shadow {
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  flex: 1;
 }
 
 .page-content {
@@ -35,18 +35,12 @@
   flex: 1;
   flex-direction: column;
   border-radius: 10px;
-  margin-left: 15%;
-  margin-right: 15%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 1%;
+  margin-right: 3%;
   background-color: white;
   box-shadow: 3px 3px 20px #48C9B0;
-}
-
-.page-shadow {
-  background-color: rgba(0,0,0,0.7);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .searchBar-ingredients {
@@ -58,6 +52,10 @@
 
 .white {
   color: white;
+}
+
+.grey {
+  color: grey;
 }
 
 .nav {
@@ -80,6 +78,12 @@ nav .title {
   align-self: stretch;
 }
 
+.center {
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
+
 .row-space {
   display: flex;
   flex-direction: 'row';
@@ -92,17 +96,7 @@ nav .title {
   flex: 1;
 }
 
-h1 {
-  font-size: 3em;
-}
-
 .list {
-}
-
-.center {
-  align-content: center;
-  align-items: center;
-  justify-content: center;
 }
 
 .elem-3col {
@@ -112,9 +106,22 @@ h1 {
   width: 30%;
 }
 
+h1 {
+  font-size: 5em;
+}
+
+h2 {
+  font-size: 3em;
+}
+
+.rounded {
+  border-radius: 10px;
+}
+
 html, 
 body,
 #root,
-.page {
+.page,
+.max-height {
     height: 100%;
 }

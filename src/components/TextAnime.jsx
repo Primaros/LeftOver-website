@@ -19,7 +19,7 @@ export default class TextAnime extends React.PureComponent {
     this.timerHandle = setTimeout(() => { this.switchtext(); }, 5000);
   }
 
-  componentWillUnmount = () => {
+  componentWillUnmount() {
     if (this.timerHandle) {
       clearTimeout(this.timerHandle);
       this.timerHandle = 0;

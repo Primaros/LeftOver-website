@@ -1,4 +1,12 @@
 
+.background-image {
+    background-image: url("../../assets/interface/background.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .landing {
     display: flex;
     flex-direction: column;

@@ -1,19 +1,21 @@
 import React from 'react';
-import { Router, Route } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Store from './redux/configureStore';
 import History from './utils/history';
 import Landing from './containers/Landing/Landing';
-import IngredientsPage from './containers/Ingredients/IngredientsPage';
-import ReceipsPage from './containers/Receips/ReceipsPage';
+import MainPage from './containers/MainPage';
+import NotFound from './containers/errors/NotFound';
 import './App.css';
 
 const App = () => (
   <Provider store={Store}>
     <Router history={History}>
-      <Route exact path="/" component={Landing} />
-      <Route path="/ingredients" component={IngredientsPage} />
-      <Route path="/receips" component={ReceipsPage} />
+      <Switch>
+        <Route exact path="/" component={Landing} />
+        <Route path="/leftover" component={MainPage} />
+        <Route component={NotFound} />
+      </Switch>
     </Router>
   </Provider>
 );

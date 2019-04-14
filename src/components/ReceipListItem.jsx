@@ -6,7 +6,6 @@ import {
   Content,
   Button,
 } from 'react-bulma-components/full';
-import { addIngredients } from '../redux/actions/ingredientsActions';
 
 const ReceipListItemCSS = {
   media: {
@@ -14,13 +13,11 @@ const ReceipListItemCSS = {
   },
 };
 
-const ReceipListItem = ({ item }) => {
+const ReceipListItem = ({ handler, item }) => {
   const {
-    name,
-    pic,
-    steps,
-    time,
+    name, pic, steps, time,
   } = item;
+
   return (
     <Media style={ReceipListItemCSS.media}>
       <Media.Item renderAs="figure" position="left" style={{ height: 40 }}>
@@ -43,7 +40,7 @@ const ReceipListItem = ({ item }) => {
               {time}
             </p>
             <p>
-              <Button color="success" size="small" rounded onClick={() => addIngredients(item)}>Watch</Button>
+              <Button color="success" size="small" rounded onClick={() => handler(name)}>Watch</Button>
             </p>
           </div>
         </Content>
@@ -65,6 +62,7 @@ ReceipListItem.propTypes = {
     steps: PropTypes.arrayOf(PropTypes.string.isRequired),
     time: PropTypes.string.isRequired,
   }).isRequired,
+  handler: PropTypes.func.isRequired,
 };
 
 export default ReceipListItem;

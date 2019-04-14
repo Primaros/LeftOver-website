@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import IngredientNavbar from '../../components/Navbar/IngredientNavbar';
 import IngredientListItem from '../../components/IngredientListItem';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import ButtonSwag from '../../components/ButtonSwag/ButtonSwag';
@@ -78,21 +77,18 @@ class IngredientsPage extends React.PureComponent {
     const { list, error } = this.state;
     const { ingredients, history } = this.props;
     return (
-      <div className="page">
-        <div className="page-content">
-          <IngredientNavbar />
-          <div className="row center">
-            <h1>Choose your ingredients</h1>
-          </div>
-          <div className="row">
-            <SearchBar holder="Search ingredient..." changeHandler={this.filter} />
-            { ingredients.length > 0
-              ? <ButtonSwag text="Check the recipes !" style={{ marginRight: '3%' }} onClick={() => history.push('receips')} />
-              : <ButtonSwag text="Check the recipes !" style={{ marginRight: '3%' }} onClick={() => history.push('receips')} disabled /> }
-          </div>
-          { error ? <p>{error}</p>
-            : <IngerdientList list={list} ingredients={ingredients} /> }
+      <div>
+        <div className="row center">
+          <h2>Choose your ingredients</h2>
         </div>
+        <div className="row">
+          <SearchBar holder="Search ingredient..." changeHandler={this.filter} />
+          { ingredients.length > 0
+            ? <ButtonSwag text="Check the recipes !" style={{ marginRight: '3%' }} onClick={() => history.push('receips')} />
+            : <ButtonSwag text="Check the recipes !" style={{ marginRight: '3%' }} onClick={() => history.push('receips')} disabled /> }
+        </div>
+        { error ? <p>{error}</p>
+          : <IngerdientList list={list} ingredients={ingredients} /> }
       </div>
     );
   }
