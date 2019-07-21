@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonSwag from '../../components/ButtonSwag/ButtonSwag';
-import { ReactComponent as MilkSvg } from '../../components/Milk.svg';
+import { ReactComponent as MilkSvg } from '../../assets/pictures/Milk.svg';
 
 const NotFound = ({ history }) => (
   <div className="screen-size page center">

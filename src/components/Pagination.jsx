@@ -12,7 +12,7 @@ const MyPagination = ({ nbPage, currentPage, handler }) => {
       </Pagination.Item>,
     );
   }
-  return (<Pagination>{items}</Pagination>);
+  return (<Pagination style={{ justifyContent: 'flex-start' }}>{items}</Pagination>);
 };
 
 MyPagination.propTypes = {

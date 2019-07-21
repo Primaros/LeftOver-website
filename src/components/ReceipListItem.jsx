@@ -15,13 +15,13 @@ const ReceipListItemCSS = {
 
 const ReceipListItem = ({ handler, item }) => {
   const {
-    name, pic, steps, time,
+    name, picture, steps, time,
   } = item;
 
   return (
     <Media style={ReceipListItemCSS.media}>
       <Media.Item renderAs="figure" position="left" style={{ height: 40 }}>
-        <Image size={96} alt="64x64" src={pic} />
+        <Image size={96} alt="64x64" src={picture} />
       </Media.Item>
       <Media.Item>
         <Content>
@@ -52,13 +52,8 @@ const ReceipListItem = ({ handler, item }) => {
 ReceipListItem.propTypes = {
   item: PropTypes.shape({
     name: PropTypes.string.isRequired,
-    pic: PropTypes.string.isRequired,
-    ingredients: PropTypes.arrayOf(
-      PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        pic: PropTypes.string.isRequired,
-      }),
-    ),
+    picture: PropTypes.string.isRequired,
+    ingredients: PropTypes.string.isRequired,
     steps: PropTypes.arrayOf(PropTypes.string.isRequired),
     time: PropTypes.string.isRequired,
   }).isRequired,

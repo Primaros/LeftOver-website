@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
+import MyPagination from '../../components/Pagination';
 import ReceipListItem from '../../components/ReceipListItem';
 import SearchBar from '../../components/SearchBar/SearchBar';
 import ButtonSwag from '../../components/ButtonSwag/ButtonSwag';
-import { getBDDPlats } from '../../APIManager';
 
 class ReceipsPage extends React.PureComponent {
   static propTypes = {
@@ -19,12 +20,19 @@ class ReceipsPage extends React.PureComponent {
 
   constructor(props) {
     super(props);
-    const { ingredients } = this.props;
     this.dbReceips = [];
+    this.mounted = true;
+    this.nbIngredientPage = 15;
     this.state = {
       list: [],
       error: '',
+      page: 0,
     };
+  }
+
+  componentDidMount() {
+    const { ingredients } = this.props;
+    this.mounted = true;
     this.getReceips(ingredients);
   }
 
@@ -35,15 +43,25 @@ class ReceipsPage extends React.PureComponent {
     }
   }
 
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
   getReceips = (ingredients) => {
-    getBDDPlats(ingredients)
-      .then((list) => {
-        this.dbReceips = list;
-        this.setState({ list });
+    let request = 'https://leftoverjs.herokuapp.com/dishes?ing=';
+    for (let i = 0; i < ingredients.length; i += 1) {
+      request += `${ingredients[i].name},`;
+    }
+    request = request.slice(0, -1);
+    fetch(request)
+      .then(response => response.json())
+      .then((response) => {
+        if (this.mounted) {
+          this.dbReceips = response.dishes;
+          this.setState({ list: response.dishes });
+        }
       })
-      .catch((error) => {
-        this.setState({ error });
-      });
+      .catch(() => { this.setState({ error: true }); });
   }
 
   getReceipsList = list => (
@@ -55,6 +73,20 @@ class ReceipsPage extends React.PureComponent {
       ))}
     </div>
   )
+
+  getPage = (ingredients, list, page) => {
+    let subList = list.slice(0).splice(page * this.nbIngredientPage, this.nbIngredientPage * 2);
+    subList = subList.filter((item) => {
+      for (let i = 0; i < ingredients.length; i += 1) {
+        if (ingredients[i].name.toLowerCase() === item.name.toLowerCase()) {
+          return false;
+        }
+      }
+      return true;
+    });
+    subList = subList.splice(0, this.nbIngredientPage);
+    return (subList);
+  }
 
   onPlatClick = (name) => {
     const { history } = this.props;
@@ -74,8 +106,12 @@ class ReceipsPage extends React.PureComponent {
   };
 
   render() {
-    const { list, error } = this.state;
-    const { history } = this.props;
+    const { list, error, page } = this.state;
+    const { history, ingredients } = this.props;
+    const size = (!list) ? 0 : list.length / this.nbIngredientPage;
+    if (error) {
+      return (<Redirect to="/connectionerror" />);
+    }
     return (
       <div>
         <div className="row center">
@@ -85,8 +121,14 @@ class ReceipsPage extends React.PureComponent {
           <ButtonSwag text="Back to ingredients" style={{ marginLeft: '3%' }} onClick={() => history.push('ingredients')} />
           <SearchBar holder="Search receip..." changeHandler={this.filter} />
         </div>
-        { error ? <p>{error}</p>
-          : this.getReceipsList(list) }
+        { list && this.getReceipsList(this.getPage(ingredients, list, page)) }
+        <div style={{ marginBottom: 15, marginLeft: 30 }}>
+          <MyPagination
+            nbPage={size}
+            currentPage={page + 1}
+            handler={(newPage) => { this.setState({ page: newPage - 1 }); }}
+          />
+        </div>
       </div>
     );
   }

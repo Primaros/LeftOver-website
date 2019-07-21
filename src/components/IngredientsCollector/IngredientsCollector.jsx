@@ -34,7 +34,7 @@ const IngredientsCollector = ({ ingredients }) => (
 IngredientsCollector.propTypes = {
   ingredients: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
-    pisture: PropTypes.string.isRequired,
+    picture: PropTypes.string.isRequired,
   }).isRequired).isRequired,
 };
 
