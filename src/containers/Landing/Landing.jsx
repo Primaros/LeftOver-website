@@ -5,7 +5,7 @@ import TextyAnim from 'rc-texty';
 import TextAnime from '../../components/TextAnime';
 import './Landing.css';
 
-const dispayTexts = [['Hey !', 2], ['Pssst', 2], ['Hungry ?', 3], ['Let\'s cook !', 0], ['Don\'t let your food sleep in the fridge', 0], ['No more leftover', 0], ['Eat well, Eat, Eat everything !', 0]];
+const dispayTexts = [['Hey !', 2], ['Pssst', 2], ['Hungry ?', 3], ['Let\'s cook !', 0], ['No more food waisting', 0], ['No more leftovers', 0], ['Eat well, be efficient !', 0]];
 
 const Landing = withRouter(({ history }) => (
   <div className="background-image screen-size">
@@ -21,7 +21,7 @@ const Landing = withRouter(({ history }) => (
       <div className="subTitle">
         <TextAnime base="^o^" texts={dispayTexts} />
       </div>
-      <Button color="success" size="large" rounded outlined onClick={() => history.push('/leftover/ingredients')}>Let&apos;s check your fridge !</Button>
+      <Button color="success" size="normal" rounded outlined onClick={() => history.push('/leftover/ingredients')}>Let&apos;s check your fridge !</Button>
     </div>
   </div>
 ));

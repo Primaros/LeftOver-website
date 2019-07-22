@@ -7,7 +7,6 @@ import Landing from './containers/Landing/Landing';
 import MainPage from './containers/MainPage';
 import NotFound from './containers/errors/NotFound';
 import ConnectionError from './containers/errors/ConnectionError';
-import Login from './containers/Login/LoginPage';
 import './App.css';
 
 const App = () => (
@@ -17,7 +16,6 @@ const App = () => (
         <Route exact path="/" component={Landing} />
         <Route path="/leftover" component={MainPage} />
         <Route path="/connectionerror" component={ConnectionError} />
-        <Route path="/login" component={Login} />
         <Route component={NotFound} />
       </Switch>
     </Router>

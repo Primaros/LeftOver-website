@@ -21,8 +21,8 @@ Ingredient.propTypes = {
 };
 
 const IngredientsCollector = ({ ingredients }) => (
-  <div className="ingredientsCollector rounded">
-    <h2 style={{ textAlign: 'center' }}>Your fridge</h2>
+  <div className="ingredientsCollector">
+    <h2 className="fridge-title">Your fridge</h2>
     <div className="ingredientsCollector-content rounded">
       { ingredients.map((item, index) => (
         <Ingredient key={item.name} {...item} index={index} />

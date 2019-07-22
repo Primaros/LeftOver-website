@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './ingredientListItem.css';
 import {
   Media,
   Image,
@@ -11,17 +12,17 @@ import { addIngredients } from '../redux/actions/ingredientsActions';
 const IngredientListItem = ({ item }) => {
   const { name, picture } = item;
   return (
-    <Media style={{ margin: '2%', backgroundColor: 'white' }}>
+    <Media className="media">
       <Media.Item renderAs="figure" position="left">
-        <Image size={64} alt="64x64" src={picture} />
+        <Image className="image" alt="64x64" src={picture} />
       </Media.Item>
       <Media.Item>
         <Content>
-          <p style={{ marginBottom: '1%' }}>
-            <strong>{name}</strong>
+          <p className="ingredient-title">
+            {name}
           </p>
           <p>
-            <Button color="success" size="small" rounded onClick={() => addIngredients(item)}>I have some !</Button>
+            <Button className="button" color="success" onClick={() => addIngredients(item)}>I have some !</Button>
           </p>
         </Content>
       </Media.Item>

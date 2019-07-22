@@ -1,7 +1,6 @@
 .searchBar {
     display: flex;
     flex: 1;
-    display: flex;
     flex-direction: 'row';
     height: 30px;
     margin: 5%;
@@ -12,26 +11,16 @@
 
 .searchBar-input {
     flex: 10;
-    border-radius: 10px 0px 0px 10px;
-    border: 2px #5D6D7E solid;
+    border-radius: 10px 10px 10px 10px;
+    border: 1px gray solid;
     color: #2C3E50;
+    padding: 10px;
+    font-size: small;
+    font-family: 'Dosis', sans-serif;
 }
 
 .searchBar-input:focus { 
     outline: none !important;
-    border-color: #117864;
-    box-shadow: 0 0 15px #A3E4D7;
-}
-
-.searchBar-button {
-    flex: 1;
-    border-radius: 0px 10px 10px 0px;
-    border: 2px #5D6D7E solid;
-    border-left: 0px;
-    cursor: pointer;
-}
-
-.searchBar-button:focus { 
-    outline: none !important;
-    box-shadow: 0 0 15px #A3E4D7;
+    border-color: rgb(221, 121, 22);
+    box-shadow: 0 0 1px rgb(221, 121, 22);
 }

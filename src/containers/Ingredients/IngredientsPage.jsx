@@ -5,7 +5,6 @@ import { Redirect } from 'react-router-dom';
 import MyPagination from '../../components/Pagination';
 import IngredientListItem from '../../components/IngredientListItem';
 import SearchBar from '../../components/SearchBar/SearchBar';
-import ButtonSwag from '../../components/ButtonSwag/ButtonSwag';
 
 const IngerdientList = ({ list }) => (
   <div className="list">
@@ -100,13 +99,13 @@ class IngredientsPage extends React.PureComponent {
     return (
       <div>
         <div className="row center">
-          <h2>Choose your ingredients</h2>
+          <h2 className="title is-primary">What's left in the fridge?</h2>
         </div>
-        <div className="row">
-          <SearchBar holder="Search ingredient..." changeHandler={this.filter} />
+        <div className="searchArea">
+          <SearchBar holder="Search ingredient . . ." changeHandler={this.filter} />
           { ingredients.length > 0
-            ? <ButtonSwag text="Check the recipes !" style={{ marginRight: '3%' }} onClick={() => history.push('receips')} />
-            : <ButtonSwag text="Check the recipes !" style={{ marginRight: '3%' }} onClick={() => history.push('receips')} disabled /> }
+            ? <button className="check-button" type="button" onClick={() => history.push('receips')}> Check the recipes ! </button>
+            : <button className="check-button-disabled" type="button" onClick={() => history.push('receips')}> Check the recipes ! </button> }
         </div>
         <IngerdientList list={this.getPage(ingredients, list, page)} />
         <div style={{ marginBottom: 15, marginLeft: 30 }}>

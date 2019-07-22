@@ -8,9 +8,9 @@ const IngredientNavbar = () => (
         <Hero.Body style={{ paddingBottom: '1%', paddingTop: '2%', marginBottom: '1%' }}>
           <div className="row">
             <div style={{ marginRight: '2%' }}>
-              <Heading size={1} className="white">LeftOver</Heading>
-              <Heading subtitle size={4} className="white">
-                {"Nobody's goning to be leftover"}
+              <Heading size={1} className="navbar-title">LeftOver</Heading>
+              <Heading subtitle size={4} className="navbar-subtitle">
+                {'Delighting quick, efficient maniacs'}
               </Heading>
             </div>
           </div>

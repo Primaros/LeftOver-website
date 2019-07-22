@@ -1,3 +1,5 @@
+$is-phone: "only screen and (max-width : 640px)";
+
 .background-image {
   background-image: url("../../assets/interface/background.jpg");
   background-size: cover;
@@ -30,19 +32,18 @@
   font-size: 7em;
   color: white;
   font-family: "Indie Flower", sans-serif;
-}
-@media only screen and (max-width : 640px) {
-  .landing .title {
+
+  @media #{$is-phone} {
     font-size: 4em;
   }
 }
 
-@media only screen and (max-width : 640px) {
-  .subTitle {
+.subTitle {
+
+  @media #{$is-phone} {
     font-size: 1.2em;
   }
 }
 
-/*# sourceMappingURL=Landing.scss.map */
 
-/*# sourceMappingURL=Landing.css.map */
+/*# sourceMappingURL=Landing.scss.map */
